@@ -1,0 +1,41 @@
+{
+  "name": "image-processing-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Zeinab Ramadan",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon './**/*.ts' --exec 'ts-node' ./src/index.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix src",
+    "format": "prettier --write 'src/**/*.ts'",
+    "build": "npx tsc",
+    "start:production": "npm run build && node dist/index.js",
+    "jasmine": "jasmine",
+    "test": "npm run build && jasmine"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.3.0",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.7.13",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
+    "prettier": "2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jasmine": "^4.3.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "morgan": "^1.10.0",
+    "supertest": "^6.2.4"
+  }
+}
