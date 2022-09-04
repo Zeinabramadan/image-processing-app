@@ -13,6 +13,20 @@ This project was built with [Node.js](https://nodejs.org/en/), [Express.js](http
 
 - Then run `npm start` from root directory and it will run the server on `http://localhost:4000`.
 
+
+#### Use case
+
+If the user wants to resize an image with a specific width and height.
+
+#### Examples
+
+- URL Format -> `http://localhost:4000//api/images`
+- Specify an image `name` and give it a specific `width` and `height` as follows:
+
+```
+http://localhost:4000/api/images?name=fjord&width=200&height=500
+```
+
 #### Architecture
 
 Form `src` directory:
