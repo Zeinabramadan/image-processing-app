@@ -5,7 +5,11 @@ import path from 'path'
 //Utils
 import { IMAGES_NAMES } from '../../utils/arrays'
 import resizeImages from '../../utils/resize'
-import { ERROR_400_BAD_REQUEST, ERROR_404_NOT_FOUND } from '../../utils/errors'
+import {
+  ERROR_400_BAD_REQUEST,
+  ERROR_404_NOT_FOUND,
+  ERROR_400_NOT_VALID_QUERY,
+} from '../../utils/errors'
 
 const imageProcessingRoutes = Router()
 
@@ -31,7 +35,14 @@ imageProcessingRoutes.get('/images', async (req: Request, res: Response) => {
 
   // Checks if width or height not provided
   if (!width || !height) {
-    return res.status(404).send(ERROR_404_NOT_FOUND)
+    return res.status(404).send(`${ERROR_400_BAD_REQUEST} "width" & "height`)
+  }
+
+  // Checks if width and height are valid queries
+  if (isNaN(parseInt(width)) || isNaN(parseInt(height))) {
+    return res
+      .status(404)
+      .send(`${ERROR_400_NOT_VALID_QUERY} "width" & "height`)
   }
 
   // Check if the resized Image exists so send it
