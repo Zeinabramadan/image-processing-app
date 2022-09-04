@@ -35,14 +35,14 @@ imageProcessingRoutes.get('/images', async (req: Request, res: Response) => {
 
   // Checks if width or height not provided
   if (!width || !height) {
-    return res.status(404).send(`${ERROR_400_BAD_REQUEST} "width" & "height`)
+    return res.status(404).send(`${ERROR_400_BAD_REQUEST} "width" & "height"`)
   }
 
   // Checks if width and height are valid queries
   if (isNaN(parseInt(width)) || isNaN(parseInt(height))) {
     return res
       .status(404)
-      .send(`${ERROR_400_NOT_VALID_QUERY} "width" & "height`)
+      .send(`${ERROR_400_NOT_VALID_QUERY} "width" & "height"`)
   }
 
   // Check if the resized Image exists so send it
